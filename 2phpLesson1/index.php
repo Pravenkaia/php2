@@ -27,5 +27,5 @@ echo '<hr>удаляем объект: ($product[2] = null) Product::getCounter(
 $product2[0] = new ProductFull(4,'Гарнитура', 1500, 70,'Белая с кнопками','Полное описание гарнитуры');
 $product2[0]->getProductFull();
 $product2[0]->__toString();
-echo 'Product::getCounter()=' . Product::getCounter() . '<hr>';
+echo 'Product::getCounter()=' . Product::getCounter() . '<hr>';  
 ?> 
