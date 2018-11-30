@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    background-color: black;
+}
+h1, h2 {
+	color: orange;
+}
+h1 { font-size: 14px; }
+h2 { font-size: 12px; }
+.main {
+    width:700px;
+    margin: 0 auto;
+}
+.container {
+    width: 700px;
+    margin: 0 auto;
+    
+    display: -ms-flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex; 
+    flex-direction: column;
+    
+    text-align: center;
+    
+    
+}
+
+.main_photo{
+    position: relative;
+    
+}
+.photo {
+    height: 450px;
+    position: relative;
+    text-align: center;
+	overflow-x:  hidden;
+	overflow-y:  hidden;
+}
+.thumbs {
+    height: 120px;
+    width: 700px;
+    display: -ms-inline-flex;
+    display: -moz-inline-flex;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    align-items: stretch;
+    
+    margin-top: 20px;
+    
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+#thumbs  img {
+    height: 100px;
+}
+#photo {
+    text-align: center;
+}
+#photo > img {
+    height: 450px;
+}
+#photo  img {
+    border: 0;
+}
+
+#sign {
+    position: absolute;
+    top:350px;
+    left: 0;
+    padding: 10px;
+    background-color: #f87a3c;
+    opacity: .8;
+    color: white;
+        
+}
+#right_row, #left_row {
+    position: absolute;
+    top: 0;
+    opacity: .4;
+    border: 0;
+}
+#right_row {
+    right: 0;
+}
+#left_row {
+    left: 0;
+}
+
+#right_row:hover, #left_row:hover {
+    opacity: .6;
+    border:0;
+}
