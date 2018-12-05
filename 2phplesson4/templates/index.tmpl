@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+{% include 'header.tmpl' %}
+
+
+<nav class="pages_navig">
+	{% include 'pages.tmpl' %}
+</nav>
+
+
+<main {{ class_full }}>
+
+	{% if get_id > 0 %}
+	      {% include 'product_id.tmpl' %}
+	{% elseif get_id == 0 %}
+	      {% include 'product.tmpl' %}
+	{% else %}
+	      {% include 'error.tmpl' %}
+	{% endif %}
+
+
+</main>
+
+
+
+{% include 'footer.tmpl' %} 
+
+</body>
+</html>
