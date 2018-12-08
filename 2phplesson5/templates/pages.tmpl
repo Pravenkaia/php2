@@ -1,11 +1,11 @@
 	
 	<ul class="pages">
-		{% for page in pages %}
+		{% for page in data.pages %}
 		<li>
-			{% if page.page == page_this %} 
+			{% if page.page == data.page_this %} 
 				{{ page.page }}
 			{% else %}
-				<a href="?page={{ page.page }}">{{ page.page }}</a>
+				<a href="?site_page=index&page={{ page.page }}">{{ page.page }}</a>
 			{% endif %}
 		</li>
 		{% endfor %}

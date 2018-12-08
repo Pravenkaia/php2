@@ -1,12 +1,12 @@
 	<div class="productsAdmin">
 
-    {% for product in products %}
+    {% for product in data.products %}
 
 		<div class="product">
-			<div><a href="?id={{ product.id_product }}"><img src="{{ product.photo_thumb }}" {{ product.img_size }} alt="{{ product.product_name }}"></a></div>
+			<div><a href="?site_page=index&id={{ product.id_product }}&page={{ data.page_this }}"><img src="{{ product.photo_thumb }}" {{ product.img_size }} alt="{{ product.product_name }}"></a></div>
 			<div> ID={{ product.id_product }}</div>
-			<div><a href="/?id={{ product.id_product }}">{{ product.product_name }}</a></div>
-			<div><a class="btnBuy" href="/cart?id={{ product.id_product }}">Купить</a></div>
+			<div><a href="/?site_page=index&id={{ product.id_product }}&page={{ data.page_this }}">{{ product.product_name }}</a></div>
+			<div><a class="btnBuy" href="/?site_page=cart&id={{ product.id_product }}">Купить</a></div>
 		</div>
 		
 	{% endfor %}	

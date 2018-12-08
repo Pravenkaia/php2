@@ -1,4 +1,6 @@
-{% if error == false %}
+{% if data.error == false %}
 	{% set error = 'Неизвестная ошибка' %}
+{% else %}
+	{% set error = data.error %}
 {% endif %}
 <h3 class="h3_error">{{ error }}</h3>
