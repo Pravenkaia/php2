@@ -1,0 +1,19 @@
+<div class="product_full">
+		<div class="product">
+			<div>
+				<a href="?id={{ products.id_product}}">
+					<img src="{{ products.photo_big }}" {{products.img_size}} alt="{{ products.product_name }}">
+				</a>
+			</div>
+		</div>
+		<div class="product flexStart">
+			<div> ID={{ products.id_product }}</div>
+			<div><a href="/?id={{ products.id_product }}">{{ products.product_name }}</a></div>
+			<div>{{ products.product_text }}</div>
+			<div><a class="btnBuy" href="/cart?id={{ products.id_product }}">Купить</a></div>
+		</div>
+
+</div>
+
+
+

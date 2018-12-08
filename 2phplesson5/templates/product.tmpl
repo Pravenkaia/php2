@@ -1,0 +1,15 @@
+	<div class="productsAdmin">
+
+    {% for product in products %}
+
+		<div class="product">
+			<div><a href="?id={{ product.id_product }}"><img src="{{ product.photo_thumb }}" {{ product.img_size }} alt="{{ product.product_name }}"></a></div>
+			<div> ID={{ product.id_product }}</div>
+			<div><a href="/?id={{ product.id_product }}">{{ product.product_name }}</a></div>
+			<div><a class="btnBuy" href="/cart?id={{ product.id_product }}">Купить</a></div>
+		</div>
+		
+	{% endfor %}	
+
+	</div>
+
