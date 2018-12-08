@@ -1,0 +1,24 @@
+AddDefaultCharset UTF-8
+# Заголовок Cache-Control
+<IfModule mod_headers.c>
+        Header append Cache-Control "no-store, no-cache, must-revalidate"
+</IfModule>
+ 
+# Заголовок Expires
+<IfModule mod_expires.c>
+        ExpiresActive On ExpiresDefault "now"
+</IfModule>
+
+# корневой файл сайта
+#Options +FollowSymLinks
+# RewriteEngine on
+# RewriteRule index.php public_html/index.php [QSA,NC]
+
+
+#RewriteCond %{REQUEST_FILENAME} -f
+
+#RewriteRule ^(.+) $1 [L]
+
+#RewriteCond %{DOCUMENT_ROOT}/public_html/%{REQUEST_URI} -f
+
+#RewriteRule ^(.+) /public_html/$1 [L]

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data.title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+{% include 'header.tmpl' %}
+
+{% if data.site_page == 'index' %}
+<nav class="pages_navig">
+	{% include 'pages.tmpl' %}
+</nav>
+{%  endif %}
+
+<main {{ data.class_full }}>
+{% if data.site_page == 'index' %}
+
+	{% if data.get_id > 0 %}
+	      {% include 'product_id.tmpl' %}
+	{% elseif data.get_id == 0 %}
+	      {% include 'product.tmpl' %}
+	{% else %}
+	       {% include 'error.tmpl' %}
+	{% endif %}
+{% else %}
+	{% include 'user.tmpl' %}
+{% endif %}
+
+</main>
+
+
+
+{% include 'footer.tmpl' %} 
+
+</body>
+</html>
