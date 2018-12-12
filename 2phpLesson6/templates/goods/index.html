@@ -1,0 +1,10 @@
+{% include 'header.html' %}
+
+<div id="goods-data">
+    <ul>
+        {% for good in content_data.goods %}
+        <li><a href="?path=goods/{{ good.id_good }}/">{{ good.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% include 'footer.html' %}

@@ -1,0 +1,15 @@
+{% include 'header.html' %}
+
+{% if id_user > 0 %}
+
+	{% include 'user/user.html' %}
+	
+{% else %}
+
+	 
+	{% include 'user/form.html' %}
+
+{% endif %}
+
+
+{% include 'footer.html' %}
