@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ data.title }}</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+	<header>
+		<div class="header">
+			<h1>{{ data.h1 }}</h1>
+		</div>
+		
+		<nav class="main_menu">
+			<ul>
+				<li><a href="?path=index">Главная</a></li>
+				<li><a href="cart">Корзина <span id="basket_items">({{ num_of_items}})</span></a></li>
+				<li><a href="reg">Регистрация</a></li>
+				<li><a href="?path=user">Кабинет</a></li>
+				<li><a href="admin">Админка</a></li>
+				<li><a href="out">Выход</a></li>
+
+			</ul>
+		</nav>
+	</header>

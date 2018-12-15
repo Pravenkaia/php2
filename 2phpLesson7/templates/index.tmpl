@@ -1,0 +1,21 @@
+{% include 'header.tmpl' %}
+
+
+<main {{ data.class_full }}>
+{% if data.path == 'index' %}
+
+	{% if data.get_id > 0 %}
+	      {% include 'product_id.tmpl' %}
+	{% elseif data.get_id == 0 %}
+	      {% include 'product.tmpl' %}
+	{% else %}
+	       {% include 'error.tmpl' %}
+	{% endif %}
+
+{% endif %}
+
+</main>
+
+
+
+{% include 'footer.tmpl' %} 

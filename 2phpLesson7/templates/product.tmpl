@@ -1,0 +1,18 @@
+	<div class="productsAdmin">
+
+    {% for product in data.products %}
+
+		<div class="product" data-id="{{ product.id_product }}">
+			<div><a href="?path=index&id={{ product.id_product }}"><img src="{{ product.photo_thumb }}" {{ product.img_size }} alt="{{ product.product_name }}"></a></div>
+			<div> ID={{ product.id_product }}</div>
+			<div><a href="?path=index&id={{ product.id_product }}">{{ product.product_name }}</a></div>
+			<div><a class="btnBuy" href="/?path=cart&id={{ product.id_product }}">Купить</a></div>
+		</div>
+		
+	{% endfor %}	
+
+	</div>
+	<div class="clearfix"></div>
+	<!--<div class="btnMore ajaxShowMore"   data-goods="25">Показать ещё {{data.num_products_on_page }}</div>-->
+	<div class="btnMore"><a class="btnMore ajaxShowMore" href="#!page_with_products_for_yandex.php"  data-goods="25">Показать ещё {{data.num_products_on_page }}</a></div>
+		<div class="clearfix"></div>
