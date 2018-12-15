@@ -1,16 +1,16 @@
 <div class="product_full">
 		<div class="product">
 			<div>
-				<a href="?path=index&page={{ data.page_this }}&id={{ data.products.id_product }}">
+				<a href="?path=index/{{ data.products.id_product }}">
 					<img src="{{ data.products.photo_big }}" {{data.products.img_size}} alt="{{ data.products.product_name }}">
 				</a>
 			</div>
 		</div>
 		<div class="product flexStart">
 			<div> ID={{ data.products.id_product }}</div>
-			<div><a href="?path=index&page={{ data.page_this }}&id={{ data.products.id_product }}">{{ data.products.product_name }}</a></div>
+			<div><a href="?path=index/{{ data.products.id_product }}">{{ data.products.product_name }}</a></div>
 			<div>{{ data.products.product_text }}</div>
-			<div><a class="btnBuy" href="/cart?id={{ data.products.id_product }}">Купить</a></div>
+			<div><a class="btnBuy" href="?path=cart/{{ data.products.id_product }}">Купить</a></div>
 		</div>
 
 </div>
