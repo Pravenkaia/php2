@@ -3,14 +3,14 @@ include_once('../config/config.php');
 include_once('../app.php');
 
 //определяем, какая страница сайта
-//print_r($_GET['path']); echo '<br>';
+//echo '6 ' . __FILE__ . '<br>print_r($_GET[path])'; print_r($_GET['path']); echo '<br>';
 
 $rout  = new Rout();
 //print_r($rout); echo '<br>';
 $controllerName = $rout->getControllerName(); //getControllerName();
 $methodName     = $rout->getMethodName();
-echo '$methodName: ' . $methodName . '<br>';
-echo '$controllerName=' . $controllerName . ' <br>';
+//echo '12 ' . __FILE__ . '<br> $methodName=' . $methodName . '<br>';
+//echo '13 ' . __FILE__ . '<br> $controllerName=' . $controllerName . ' <br>';
 $controller = new $controllerName();
 $data = $controller->$methodName($_GET);
 	

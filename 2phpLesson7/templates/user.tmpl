@@ -1,38 +1,15 @@
 {% include 'header.tmpl' %}
 
 <main>
-{% if data.id > 0 %}
-	<div>
-	<div class="product flexStart">
-			<div> ID={{ data.user_name }}</div>
-			<div>Привет, {{ data.user_name }}!</div>
-			<div>Ваш логин: {{ data.login }}</div>
-			<div>Ваш Пароль: {{ data.pass }}</div>
-		</div>
-	</div>
+{% if data.user.id_author > 0 %}
+	{% include 'user/user_id.tmpl' %}
 {% else %}	
-
-<form method="post"  ENCTYPE="multipart/form-data">
-
-
-  <div class="reg">
-
-	<div><label for="log"><span class=bold>*</span>Л о г и н</label></div>
-	<div><input id="log" type="text" name="login" value="" required></div>
 	
-	<div><label for="pas"><span class=bold>*</span>П а р о л ь</label></div>
-	<div><input id="pas" type="password" name="pass" value="" required></div>
+	{% if data.error != '' %}
+		{% include 'error.tmpl' %}
+	{% endif %}
 
-	<input  type="hidden" name="page"   value="user">
-	<input  type="hidden" name="action" value="login">
-
-	<div><input type=SUBMIT value="Войти"></div>
-
-	<div><a href="/?path=reg/">Регистрация >>></a>
-	
-  </div>
-
-</form>
+	{% include 'user/user_index_form.tmpl' %}
 
 {% endif %}
 

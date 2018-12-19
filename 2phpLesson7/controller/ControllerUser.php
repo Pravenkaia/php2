@@ -1,5 +1,5 @@
 <?
-class ControllerIndex extends Controller {
+class ControllerUser extends Controller {
 
     protected $title;
 	protected $h1;
@@ -16,7 +16,7 @@ class ControllerIndex extends Controller {
 		$data['error'] = '';
 		if(!empty($_GET['id']))  {
 			// Вывод юзера по id
-			$data['user'] = User::userGetId();
+			$data['user'] = User::userGetId(); //
 			if (!empty($data['user'])) 
 				$data['user']= '';
 			else
@@ -30,7 +30,8 @@ class ControllerIndex extends Controller {
 	
 	public function login(){
 		// Вывод ЮЗЕРА ПО логину и паролю
-		$data['user'] = User::getThisUser();
+		$data['user'] = User::getThisUser(); //User::
+		
 		if (!empty($data['user'])) {
 			$data['error']= '';
 		}
@@ -39,6 +40,7 @@ class ControllerIndex extends Controller {
 		$data['page'] = 'user';
 		$data['title'] = $this->title;
 		$data['h1'] = $this->h1;
+		//echo '<br>43 ' . __FILE__ . ' $data[user]: ';print_r($data['user']);  echo '<br>';
 		return $data;
 	}
 }

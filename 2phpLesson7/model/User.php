@@ -20,21 +20,26 @@ class User {
 	public function getThisUser() {
 		$login = htmlspecialchars(strip_tags($_POST['login']));
 		$pass  = htmlspecialchars(strip_tags($_POST['pass']));
-		if($login != '' && $pass) {
-			$sql ="SELECT * FROM " . TABLE_AUTHORS . " WHERE author_login LIKE ':author_login' AND author_pass LIKE ':author_pass'";
-			$execute_params = array(':author_login' => $login, ':author_pass' => $pass );
+		//echo '23 ' . __FILE__ . ' $login=' . $login . ' <br>' ;
+		if($login != '' && $pass != '') {
+			$sql ="SELECT * FROM " . TABLE_AUTHORS . " WHERE author_login LIKE ?"; //:author_login // AND author_pass LIKE ':author_pass'";
+			//echo '26 ' . __FILE__ . ' $sql=' . $sql . ' <br>' ;
+			$execute_params = array($login); // ':author_login' =>  //, ':author_pass' => $pass 
 			$results = DB::getInstance()->Select($sql,$execute_params);
-			//print_r($result);
+			//echo '29 ' . __FILE__ . '<br>print_r($results)='; print_r($results); echo '<br>';
 			if ($results) {
 				foreach ($results[0] as $key => $value) {
 					$result[$key] = $value;
 				}
+				//echo '34 ' . __FILE__ . '<br>print_r($result)='; print_r($result); echo '<br>';
+				//проверрка пароля
+				if ( password_verify($pass, $result['author_pass']) ) { //password_hash(
+					//echo '37 ' . __FILE__ . '<br>print_r($result)='; print_r($result); echo '<br>';
+					return $result;
+				}
+				return false;
 			}
-			else return false;
-			if($result) {
-				//print_r($result); 
-				return $result;
-			}
+			return false;
 		}
 		return false;
 	}
