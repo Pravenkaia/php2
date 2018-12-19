@@ -68,6 +68,6 @@ class Product {
 		echo $this->str;
 	}
 	
-}
+} 
 
 ?> 

@@ -31,5 +31,5 @@ class ProductFull extends Product {
 	}
 	
 }
-
+  
 ?> 
