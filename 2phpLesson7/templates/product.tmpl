@@ -6,7 +6,7 @@
 			<div><a href="?path=index/{{ product.id_product }}"><img src="{{ product.photo_thumb }}" {{ product.img_size }} alt="{{ product.product_name }}"></a></div>
 			<div> ID={{ product.id_product }}</div>
 			<div><a href="?path=index/{{ product.id_product }}">{{ product.product_name }}</a></div>
-			<div><a class="btnBuy" href="/?path=cart/{{ product.id_product }}">Купить</a></div>
+			<div><a class="btnBuy" href="?path=cart/{{ product.id_product }}">Купить</a></div>
 		</div>
 		
 	{% endfor %}	

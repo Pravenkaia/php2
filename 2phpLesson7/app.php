@@ -2,10 +2,9 @@
 include_once 'autoloader.php';
 
 try{
-	$start = new Start();
-	$start->init(); //
-
-
+	DB::getInstance();
+	//$start = new Start();
+	//$start->init(); //
 }
 catch (PDOException $e){
     echo "DB is not available";

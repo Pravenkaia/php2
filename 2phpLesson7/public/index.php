@@ -1,17 +1,16 @@
 <?
 include_once('../config/config.php');
 include_once('../app.php');
+
 //определяем, какая страница сайта
-//print_r($_GET);
-
-
 //print_r($_GET['path']); echo '<br>';
 
-
-$controllerName = $start->getControllerName();
-$methodName     = $start->getMethodName();
-
-//echo '$controllerName=' . $controllerName . ' <br>';
+$rout  = new Rout();
+//print_r($rout); echo '<br>';
+$controllerName = $rout->getControllerName(); //getControllerName();
+$methodName     = $rout->getMethodName();
+echo '$methodName: ' . $methodName . '<br>';
+echo '$controllerName=' . $controllerName . ' <br>';
 $controller = new $controllerName();
 $data = $controller->$methodName($_GET);
 	
@@ -25,7 +24,7 @@ try {
   
   $twig = new Twig_Environment($loader);
   
-  $template = $twig->loadTemplate($data['path'] . '.tmpl');
+  $template = $twig->loadTemplate($_GET['page'] . '.tmpl');
 
 	echo $template->render(array(
 		'data' => $data

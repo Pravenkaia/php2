@@ -22,7 +22,7 @@ class Product{
 					// функция размеров и  осутствия изображения
 					$img = imgProduct($result['photo_big']);
 					$result['photo_big'] = $img['img_src'];
-					$result['img_size'] = $img['img_size']; // строка  width="" height=""
+					$result['img_size']  = $img['img_size']; // строка  width="" height=""
 					//print_r($result); 
 					return $result;
 				}
