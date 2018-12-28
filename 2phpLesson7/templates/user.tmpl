@@ -1,0 +1,21 @@
+{% include 'header.tmpl' %}
+
+<main>
+{% if data.user.id_author > 0 %}
+	{% include 'user/user_id.tmpl' %}
+{% else %}	
+	
+	{% if data.error != '' %}
+		{% include 'error.tmpl' %}
+	{% endif %}
+
+	{% include 'user/user_index_form.tmpl' %}
+
+{% endif %}
+
+</main>
+
+
+
+
+{% include 'footer.tmpl' %}

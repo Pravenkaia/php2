@@ -1,0 +1,13 @@
+<nav class="pages_navig">
+	<ul class="pages">
+		{% for page in data.pages %}
+		<li>
+			{% if page.page == data.page_this %} 
+				{{ page.page }}
+			{% else %}
+				<a href="?path=index&page={{ page.page }}">{{ page.page }}</a>
+			{% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+</nav>	
