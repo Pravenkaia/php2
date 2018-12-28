@@ -2,6 +2,9 @@
 
 
 <main {{ data.class_full }}>
+	<div class="menu">
+		{% include 'menu.tmpl' %}
+	</div>
 {% if data.page == 'index' %}
 
 	{% if data.get_id > 0 %}

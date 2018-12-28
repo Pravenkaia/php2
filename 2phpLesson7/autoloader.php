@@ -11,4 +11,12 @@ spl_autoload_register(
 			if (file_exists(__DIR__ . '/controller/' . $class_name . '.php'))
 				include __DIR__ . '/controller/' . $class_name . '.php';
 			});
+			
+// загружаем библиотечные функции			
+$dir = '../model/dll_functions';			
+$files = scandir($dir);  
+foreach($files as $file){  
+    if(($file !== '.') AND ($file !== '..'))
+		include_once $dir .'/' . $file;
+}
 ?>

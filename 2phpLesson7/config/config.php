@@ -27,10 +27,10 @@ const ROUTE_FOLD = "/public";
 const SITE_NAME = 'Интернет-магазин игрушек';
 
 const PATH_TEMPLATES = __DIR__ . '/../templates';
-const NO_PHOTO = "/public/img/shablon-images/no_photo.png";
+const NO_PHOTO = ROUTE_FOLD  . "/img/shablon-images/no_photo.png";
 
-$foldBig = '/public/img/big/';        // путь к большим картинкам 
-$foldThumbs = '/public/img/thumb/';   // путь к превьюшкам 
+$foldBig = ROUTE_FOLD . '/img/big/';        // путь к большим картинкам 
+$foldThumbs = ROUTE_FOLD . '/img/thumb/';   // путь к превьюшкам 
 
 
 ?>

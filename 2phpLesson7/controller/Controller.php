@@ -19,8 +19,15 @@ class Controller {
 	
 	public function get_data(){
 	}
+	public function err404(){
+		$data['page'] = 'err404';
+		return $data;
+	}
 	
 	public function index(){
+	}
+	public function __call($name,array $params) {
+		echo "Метод не существует"; //$name 
 	}
 }
 ?>

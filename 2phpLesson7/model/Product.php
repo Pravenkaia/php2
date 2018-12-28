@@ -1,7 +1,4 @@
 <?
-//include('../model/dll_functions/imgProduct.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/model/dll_functions/imgProduct.php');
-
 class Product{
 	
 
@@ -30,20 +27,15 @@ class Product{
 	}
 	
 	// товары на странице
-	public function pagingProducts($limit = 9, $id = 0) { 
-		
-		if ($id > 0) {
-			$where = " WHERE id_product<:id_product ";
-			$execute_params = array(':id_product' => (int)$id, ':limit' => (int)$limit);
-		}
-		else {
-			$where = '';
-			$execute_params = array(':limit' => (int)$limit);
-		}
+	public function pagingProducts($limit = 9, $id = 0, $id_category = 0) { 
+			
+		$require = self::textOfRequire($limit, $id, $id_category);
 
-		$sql = 'SELECT * FROM ' . TABLE_PRODUCTS  . $where . ' ORDER BY id_product DESC LIMIT  :limit ';  //:limit  OFFSET :offset
+		//$sql = 'SELECT * FROM ' . TABLE_PRODUCTS  . $where . ' ORDER BY id_product DESC LIMIT  :limit ';  //:limit  OFFSET :offset
+		//$sql = 'SELECT * FROM ' . TABLE_PRODUCTS  . $where . ' ORDER BY id_product DESC LIMIT  :limit ';  //:limit  OFFSET :offset
 		
-		$res = DB::getInstance()->Select($sql,$execute_params);
+		//$res = DB::getInstance()->Select($sql,$execute_params);
+		$res = DB::getInstance()->Select($require['sql'],$require['execute_params']);
 		if ($res) {
 				for ($i = 0; $i < count($res); $i++) {
 					// определяем размеры картинки, а если нет фото, ставим заглушку
@@ -58,6 +50,39 @@ class Product{
 
 			}
 		return false;
+	}
+	
+	private function textOfRequire($limit = 9, $id = 0,$id_category = 0) {
+		if ($id > 0) {
+			$and = " AND id_product<:id_product ";
+			$execute_params = array(':id_product' => (int)$id, ':limit' => (int)$limit);
+		}
+		else {
+			$and = '';
+			$execute_params = array(':limit' => (int)$limit);
+		}
+		if ($id_category > 0) {
+			$execute_params[':id_category'] = $id_category;
+			$sql = 'SELECT *' . TABLE_PRODUCTS  . ' 
+						FROM ' . TABLE_PRODUCTS  . ', ' . TABLE_UID_GROUPS . 
+						' WHERE 1 ' . 
+						$and .
+						' AND ' . TABLE_PRODUCTS . '.id_product=' .  TABLE_UID_GROUPS . '.id_product' .
+						' ORDER BY ' . TABLE_PRODUCTS . '.id_product DESC 
+						LIMIT  :limit ';
+		}
+		else {
+			$sql = 'SELECT * FROM ' . TABLE_PRODUCTS  . 
+						' WHERE 1 ' . 
+						$and .
+						' ORDER BY ' . TABLE_PRODUCTS . '.id_product DESC ' .
+						'LIMIT  :limit ';
+		}
+		//echo $sql;
+		return array('sql' => $sql, 'execute_params' => $execute_params);
+		//$sql = 'SELECT * FROM ' . TABLE_PRODUCTS  . $where . ' ORDER BY id_product DESC LIMIT  :limit ';  //:limit  OFFSET :offset
+		//$sql = 'SELECT * FROM ' . TABLE_PRODUCTS  . $where . ' ORDER BY id_product DESC LIMIT  :limit ';  //:limit  OFFSET :offset
+		
 	}
 	
 	

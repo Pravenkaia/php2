@@ -27,8 +27,9 @@ if($_POST) {
 						<div><a class='btnBuy' href='?path=cart&id=" . $product[$i]['id_product'] . "'>Купить</a></div>
 					</div>";
 	}
-	//сделать страницу для yandex (page_with_products_for_yandex.php)
 	echo $htmlStr;
 }
 //echo $htmlStr;
+
+//echo '<br><br>123<br>';
 ?>
